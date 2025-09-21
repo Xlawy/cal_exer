@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学练习题生成器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>数学练习题生成器</h1>
+            <!-- <p>为孩子们生成有趣的数学练习题</p> -->
+        </header>
+
+        <div class="main-content">
+            <div class="settings-panel">
+                <h2>📝 题目设置</h2>
+                
+                <div class="setting-group">
+                    <label for="numberRange">数字范围：</label>
+                    <select id="numberRange">
+                        <option value="20">20以内</option>
+                        <option value="50">50以内</option>
+                        <option value="100">100以内</option>
+                    </select>
+                </div>
+
+                <div class="setting-group">
+                    <label for="operationType">运算类型：</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="addition" checked> 加法 (+)</label>
+                        <label><input type="checkbox" id="subtraction" checked> 减法 (-)</label>
+                        <label><input type="checkbox" id="multiplication"> 乘法 (×)</label>
+                        <label><input type="checkbox" id="division"> 除法 (÷)</label>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <label for="questionCount">题目数量（5-80题）：</label>
+                    <input type="number" id="questionCount" value="80" min="5" max="80">
+                </div>
+
+                <div class="setting-group">
+                    <label for="questionsPerRow">每行题目数：</label>
+                    <select id="questionsPerRow">
+                        <option value="2">2题</option>
+                        <option value="3">3题</option>
+                        <option value="4">4题</option>
+                        <option value="5" selected>5题</option>
+                    </select>
+                </div>
+
+                <div class="setting-group">
+                    <label for="showPreview">显示题目预览：</label>
+                    <input type="checkbox" id="showPreview">
+                </div>
+
+                <button id="generateBtn" class="generate-btn">🎯 生成练习题</button>
+            </div>
+
+            <div class="preview-panel">
+                <h2 id="previewTitle">📋 题目预览</h2>
+                <div id="previewArea" class="preview-area">
+                    <p class="placeholder">点击"生成练习题"按钮开始生成题目</p>
+                </div>
+                
+                <div class="action-buttons">
+                    <button id="downloadQuestionsBtn" class="action-btn" disabled>📄 下载题目PDF</button>
+                    <button id="downloadAnswersBtn" class="action-btn" disabled>📝 下载答案PDF</button>
+                    <button id="printBtn" class="action-btn" disabled>📄 下载题目和答案PDF</button>
+                </div>
+                <div class="download-hint">
+                    <p>💡 提示：如果点击同时下载答案和题目PDF，会出现两次下载框，需要依次点击</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 张瑾涵 2025 数学练习题生成器</p>
+        </footer>
+    </div>
+
+    <script src="math-generator.js"></script>
+    <script src="html-pdf-exporter.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

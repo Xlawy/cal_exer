@@ -1,0 +1,68 @@
+{
+  "name": "math-exercise-generator",
+  "version": "1.0.0",
+  "description": "数学练习题生成器 - 支持加减乘除练习，可导出PDF",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "build": "electron-builder",
+    "build:mac": "electron-builder --mac",
+    "build:win": "electron-builder --win",
+    "build:linux": "electron-builder --linux",
+    "build:all": "electron-builder --mac --win --linux",
+    "dist": "electron-builder --publish=never"
+  },
+  "keywords": [
+    "math",
+    "education",
+    "exercise",
+    "pdf",
+    "electron"
+  ],
+  "author": "Math Exercise Generator",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-builder": "^24.13.3",
+    "electron-icon-builder": "^2.0.1"
+  },
+  "dependencies": {
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^5.0.2",
+    "puppeteer": "^24.22.0"
+  },
+  "build": {
+    "appId": "com.mathexercise.generator",
+    "productName": "数学练习题生成器",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!node_modules/**/*",
+      "!dist/**/*",
+      "!*.md"
+    ],
+    "mac": {
+      "category": "public.app-category.education",
+      "target": "dmg",
+      "icon": "assets/icon.icns"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
